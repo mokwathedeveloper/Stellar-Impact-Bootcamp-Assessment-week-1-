@@ -37,14 +37,25 @@ fn view_bills(bills: &HashMap<String, Bill>) {
     }
 }
 
+fn remove_bill(bills: &mut HashMap<String, Bill>) {
+    println!("Bill name to remove:");
+    let name = get_input();
+    if bills.remove(&name).is_some() {
+        println!("Bill removed.");
+    } else {
+        println!("Bill not found.");
+    }
+}
+
 fn main() {
     let mut bills: HashMap<String, Bill> = HashMap::new();
     loop {
-        println!("\n1. Add bill\n2. View bills\n3. Quit");
+        println!("\n1. Add bill\n2. View bills\n3. Remove bill\n4. Quit");
         match get_input().as_str() {
             "1" => add_bill(&mut bills),
             "2" => view_bills(&bills),
-            "3" => break,
+            "3" => remove_bill(&mut bills),
+            "4" => break,
             _ => println!("Invalid choice."),
         }
     }
