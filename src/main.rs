@@ -47,15 +47,42 @@ fn remove_bill(bills: &mut HashMap<String, Bill>) {
     }
 }
 
+fn edit_bill(bills: &mut HashMap<String, Bill>) {
+    println!("Bill name to edit (or 'back' to cancel):");
+    let name = get_input();
+    if name == "back" {
+        return;
+    }
+    if !bills.contains_key(&name) {
+        println!("Bill not found.");
+        return;
+    }
+    println!("New amount (or 'back' to cancel):");
+    let input = get_input();
+    if input == "back" {
+        return;
+    }
+    let amount: f64 = match input.parse() {
+        Ok(v) => v,
+        Err(_) => {
+            println!("Invalid amount.");
+            return;
+        }
+    };
+    bills.insert(name.clone(), Bill { name, amount });
+    println!("Bill updated.");
+}
+
 fn main() {
     let mut bills: HashMap<String, Bill> = HashMap::new();
     loop {
-        println!("\n1. Add bill\n2. View bills\n3. Remove bill\n4. Quit");
+        println!("\n1. Add bill\n2. View bills\n3. Remove bill\n4. Edit bill\n5. Quit");
         match get_input().as_str() {
             "1" => add_bill(&mut bills),
             "2" => view_bills(&bills),
             "3" => remove_bill(&mut bills),
-            "4" => break,
+            "4" => edit_bill(&mut bills),
+            "5" => break,
             _ => println!("Invalid choice."),
         }
     }
