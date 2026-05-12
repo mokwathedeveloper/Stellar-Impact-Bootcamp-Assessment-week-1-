@@ -1,4 +1,14 @@
+<div align="center">
+
 # Project 1: Interactive Bill Manager
+
+![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)
+![Cargo](https://img.shields.io/badge/Cargo-000000?style=for-the-badge&logo=rust&logoColor=orange)
+![CLI](https://img.shields.io/badge/CLI-Terminal-4D4D4D?style=for-the-badge&logo=windowsterminal&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+
+</div>
 
 A command-line bills and expenses manager built in Rust. This is Week 1 of the Stellar Impact Bootcamp assessment, bringing together core Rust concepts — structs, hashmaps, functions, loops, and user input — into a single working program.
 
