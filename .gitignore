@@ -1,2 +1,5 @@
 /target
+Cargo.lock
 demo/
+*.env
+*.log
